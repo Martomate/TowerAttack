@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/towers/red.png" type="Texture" id=1]
+[ext_resource path="res://images/towers/blue.png" type="Texture" id=2]
+
+[node name="TowerTiles" type="Node"]
+
+[node name="Red" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Blue" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
+texture = ExtResource( 2 )
+centered = false
+

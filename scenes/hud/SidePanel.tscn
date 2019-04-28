@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/ui/SidePanel.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/InfoContainer.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ui/MobInfo.gd" type="Script" id=3]
+[ext_resource path="res://scenes/hud/IconAndInfo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/mobs/blue.png" type="Texture" id=5]
+[ext_resource path="res://images/mobs/yellow.png" type="Texture" id=6]
+[ext_resource path="res://scripts/ui/AddMob.gd" type="Script" id=7]
+[ext_resource path="res://scripts/ui/WaveList.gd" type="Script" id=8]
+
+[node name="SidePanel" type="Panel"]
+margin_right = 256.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 256, 768 )
+script = ExtResource( 1 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+tabs_visible = false
+
+[node name="Waves" type="Panel" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="InfoContainer" type="VBoxContainer" parent="TabContainer/Waves"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="MobInfo" type="VBoxContainer" parent="TabContainer/Waves/InfoContainer"]
+margin_right = 252.0
+margin_bottom = 148.0
+script = ExtResource( 3 )
+
+[node name="Blue" parent="TabContainer/Waves/InfoContainer/MobInfo" instance=ExtResource( 4 )]
+margin_right = 252.0
+icon = ExtResource( 5 )
+info = "Name: Blue
+Health: 100
+Speed: 20"
+
+[node name="Yellow" parent="TabContainer/Waves/InfoContainer/MobInfo" instance=ExtResource( 4 )]
+margin_top = 76.0
+margin_right = 252.0
+margin_bottom = 148.0
+icon = ExtResource( 6 )
+info = "Name: Yellow
+Health: 70
+Speed: 30"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 152.0
+margin_right = 252.0
+margin_bottom = 156.0
+
+[node name="VBoxContainer2" type="MarginContainer" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 160.0
+margin_right = 252.0
+margin_bottom = 230.0
+custom_constants/margin_right = 8
+
+[node name="AddMob" type="HBoxContainer" parent="TabContainer/Waves/InfoContainer/VBoxContainer2"]
+margin_right = 244.0
+margin_bottom = 70.0
+script = ExtResource( 7 )
+
+[node name="Icon" type="OptionButton" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob"]
+margin_right = 105.0
+margin_bottom = 70.0
+icon = ExtResource( 5 )
+flat = true
+
+[node name="TheRest" type="VBoxContainer" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob"]
+margin_left = 109.0
+margin_right = 244.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="Quantity" type="LineEdit" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest"]
+margin_right = 135.0
+margin_bottom = 24.0
+
+[node name="Buy" type="HBoxContainer" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest"]
+margin_top = 28.0
+margin_right = 135.0
+margin_bottom = 60.0
+
+[node name="Price" type="Label" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest/Buy"]
+margin_top = 9.0
+margin_right = 83.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+align = 1
+
+[node name="Add" type="Button" parent="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest/Buy"]
+margin_left = 87.0
+margin_right = 135.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 48, 32 )
+text = "Add"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 234.0
+margin_right = 252.0
+margin_bottom = 238.0
+
+[node name="WaveList" type="ScrollContainer" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 242.0
+margin_right = 252.0
+margin_bottom = 689.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+script = ExtResource( 8 )
+
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Waves/InfoContainer/WaveList"]
+margin_right = 252.0
+size_flags_horizontal = 3
+
+[node name="TotalCost" type="Label" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 693.0
+margin_right = 252.0
+margin_bottom = 707.0
+text = "Total cost: $0"
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 711.0
+margin_right = 252.0
+margin_bottom = 715.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Waves/InfoContainer"]
+margin_top = 719.0
+margin_right = 252.0
+margin_bottom = 756.0
+custom_constants/margin_right = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Waves/InfoContainer/MarginContainer"]
+margin_left = 5.0
+margin_right = 247.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="ClearWave" type="Button" parent="TabContainer/Waves/InfoContainer/MarginContainer/HBoxContainer"]
+margin_right = 119.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+text = "Clear wave"
+
+[node name="StartWave" type="Button" parent="TabContainer/Waves/InfoContainer/MarginContainer/HBoxContainer"]
+margin_left = 123.0
+margin_right = 242.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+text = "Start wave"
+
+[node name="Mobs" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[connection signal="addMobsToWave" from="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob" to="TabContainer/Waves/InfoContainer/WaveList" method="addMobToWave"]
+[connection signal="item_selected" from="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/Icon" to="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob" method="_on_Icon_item_selected"]
+[connection signal="text_changed" from="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest/Quantity" to="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob" method="_on_Quantity_text_changed"]
+[connection signal="pressed" from="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob/TheRest/Buy/Add" to="TabContainer/Waves/InfoContainer/VBoxContainer2/AddMob" method="_on_Add_pressed"]
+[connection signal="costChanged" from="TabContainer/Waves/InfoContainer/WaveList" to="TabContainer/Waves/InfoContainer" method="_on_WaveList_costChanged"]
+[connection signal="startWave" from="TabContainer/Waves/InfoContainer/WaveList" to="." method="_on_WaveList_startWave"]
+[connection signal="pressed" from="TabContainer/Waves/InfoContainer/MarginContainer/HBoxContainer/ClearWave" to="TabContainer/Waves/InfoContainer/WaveList" method="_on_Clear_wave_pressed"]
+[connection signal="pressed" from="TabContainer/Waves/InfoContainer/MarginContainer/HBoxContainer/StartWave" to="TabContainer/Waves/InfoContainer/WaveList" method="_on_Start_wave_pressed"]

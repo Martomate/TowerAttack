@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/ui/IconAndInfo.gd" type="Script" id=1]
+[ext_resource path="res://images/mobs/blue.png" type="Texture" id=2]
+[ext_resource path="res://images/icons/un_heart.png" type="Texture" id=3]
+[ext_resource path="res://images/icons/heart.png" type="Texture" id=4]
+[ext_resource path="res://images/icons/un_speed.png" type="Texture" id=5]
+[ext_resource path="res://images/icons/speed.png" type="Texture" id=6]
+
+[node name="IconAndInfo" type="MarginContainer"]
+margin_right = 240.0
+margin_bottom = 72.0
+custom_constants/margin_right = 8
+custom_constants/margin_left = 4
+script = ExtResource( 1 )
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_left = 4.0
+margin_right = 248.0
+margin_bottom = 80.0
+
+[node name="Icon" type="TextureRect" parent="HBox"]
+margin_right = 64.0
+margin_bottom = 80.0
+texture = ExtResource( 2 )
+
+[node name="Info" type="Label" parent="HBox"]
+margin_left = 68.0
+margin_top = 16.0
+margin_right = 143.0
+margin_bottom = 64.0
+text = "Name: Blue
+Health: 100
+Speed: 20"
+
+[node name="Filler" type="Control" parent="HBox"]
+margin_left = 147.0
+margin_right = 151.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[node name="Actions" type="GridContainer" parent="HBox"]
+margin_left = 155.0
+margin_right = 244.0
+margin_bottom = 80.0
+columns = 3
+
+[node name="HealthMinus" type="Button" parent="HBox/Actions"]
+margin_right = 28.0
+margin_bottom = 22.0
+icon = ExtResource( 3 )
+
+[node name="Health" type="Label" parent="HBox/Actions"]
+margin_left = 32.0
+margin_top = 4.0
+margin_right = 56.0
+margin_bottom = 18.0
+text = "100"
+align = 2
+
+[node name="HealthPlus" type="Button" parent="HBox/Actions"]
+margin_left = 60.0
+margin_right = 89.0
+margin_bottom = 22.0
+icon = ExtResource( 4 )
+
+[node name="SpeedMinus" type="Button" parent="HBox/Actions"]
+margin_top = 26.0
+margin_right = 28.0
+margin_bottom = 48.0
+icon = ExtResource( 5 )
+
+[node name="Speed" type="Label" parent="HBox/Actions"]
+margin_left = 32.0
+margin_top = 30.0
+margin_right = 56.0
+margin_bottom = 44.0
+text = "80"
+align = 2
+
+[node name="SpeedPlus" type="Button" parent="HBox/Actions"]
+margin_left = 60.0
+margin_top = 26.0
+margin_right = 89.0
+margin_bottom = 48.0
+icon = ExtResource( 6 )
+
+[node name="Regen" type="Button" parent="HBox/Actions"]
+margin_top = 52.0
+margin_right = 28.0
+margin_bottom = 72.0
+toggle_mode = true
+text = "Rg"
+
+[node name="Reflect" type="Button" parent="HBox/Actions"]
+margin_left = 32.0
+margin_top = 52.0
+margin_right = 56.0
+margin_bottom = 72.0
+toggle_mode = true
+text = "Rf"
+
+[node name="Dodge" type="Button" parent="HBox/Actions"]
+margin_left = 60.0
+margin_top = 52.0
+margin_right = 89.0
+margin_bottom = 72.0
+toggle_mode = true
+text = "Dg"
+
+[connection signal="pressed" from="HBox/Actions/HealthMinus" to="." method="_on_HealthMinus_pressed"]
+[connection signal="pressed" from="HBox/Actions/HealthPlus" to="." method="_on_HealthPlus_pressed"]
+[connection signal="pressed" from="HBox/Actions/SpeedMinus" to="." method="_on_SpeedMinus_pressed"]
+[connection signal="pressed" from="HBox/Actions/SpeedPlus" to="." method="_on_SpeedPlus_pressed"]
+[connection signal="toggled" from="HBox/Actions/Regen" to="." method="_on_Regen_toggled"]
+[connection signal="toggled" from="HBox/Actions/Reflect" to="." method="_on_Reflect_toggled"]
+[connection signal="toggled" from="HBox/Actions/Dodge" to="." method="_on_Dodge_toggled"]

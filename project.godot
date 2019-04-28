@@ -1,0 +1,110 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AI",
+"language": "GDScript",
+"path": "res://scripts/ai/AI.gd"
+}, {
+"base": "Reference",
+"class": "AIData",
+"language": "GDScript",
+"path": "res://scripts/AIData.gd"
+}, {
+"base": "Reference",
+"class": "GridInfo",
+"language": "GDScript",
+"path": "res://scripts/ai/GridInfo.gd"
+}, {
+"base": "TileMap",
+"class": "Ground",
+"language": "GDScript",
+"path": "res://scripts/Ground.gd"
+}, {
+"base": "Reference",
+"class": "MobSetup",
+"language": "GDScript",
+"path": "res://scripts/mobs/MobSetup.gd"
+}, {
+"base": "Reference",
+"class": "MobType",
+"language": "GDScript",
+"path": "res://scripts/mobs/MobType.gd"
+}, {
+"base": "Reference",
+"class": "MobTypes",
+"language": "GDScript",
+"path": "res://scripts/mobs/MobTypes.gd"
+}, {
+"base": "Reference",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://scripts/PlayerData.gd"
+}, {
+"base": "Reference",
+"class": "TileMapAnalyzer",
+"language": "GDScript",
+"path": "res://scripts/ai/TileMapAnalyzer.gd"
+}, {
+"base": "Node2D",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://scripts/towers/Tower.gd"
+}, {
+"base": "Reference",
+"class": "TowerManager",
+"language": "GDScript",
+"path": "res://scripts/ai/TowerManager.gd"
+}, {
+"base": "Reference",
+"class": "TowerType",
+"language": "GDScript",
+"path": "res://scripts/towers/TowerType.gd"
+}, {
+"base": "Reference",
+"class": "TowerTypes",
+"language": "GDScript",
+"path": "res://scripts/towers/TowerTypes.gd"
+} ]
+_global_script_class_icons={
+"AI": "",
+"AIData": "",
+"GridInfo": "",
+"Ground": "",
+"MobSetup": "",
+"MobType": "",
+"MobTypes": "",
+"PlayerData": "",
+"TileMapAnalyzer": "",
+"Tower": "",
+"TowerManager": "",
+"TowerType": "",
+"TowerTypes": ""
+}
+
+[application]
+
+config/name="LD44"
+run/main_scene="res://scenes/Game.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
